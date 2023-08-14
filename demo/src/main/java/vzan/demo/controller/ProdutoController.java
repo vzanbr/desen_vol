@@ -35,19 +35,19 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity<Produto> salvar (@RequestBody Produto produto) {
+    public ResponseEntity<Produto> salvarById (@RequestBody Produto produto) {
         Produto novoProduto = service.salvar(produto);
         return  new ResponseEntity<>(novoProduto, HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<Produto> alterar (@RequestBody Produto produto) {
+    public ResponseEntity<Produto> alterarById (@RequestBody Produto produto) {
         Produto produtoAlterado = service.salvar(produto);
         return ResponseEntity.ok(produtoAlterado);
     }
 
     @DeleteMapping("{sku}")
-    public ResponseEntity<Void> delete(@PathVariable String sku) {
+    public ResponseEntity<Produto> deleteById(@PathVariable String sku) {
         service.delete(sku);
         return  ResponseEntity.noContent().build();
     }
