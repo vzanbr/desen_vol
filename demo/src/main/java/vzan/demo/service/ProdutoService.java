@@ -24,11 +24,16 @@ public class ProdutoService {
     public Produto salvar(Produto produto){
         return repository.save(produto);
     }
+//    public Produto adcionar(Produto produto){
+//        return repository.adcionar(produto);
+//    }
 
     public Optional<Produto> buscarId(String sku) {
         return repository.findById(sku);
     }
-
+//    public Produto atualizar (Produto produto) {
+//        return repository.atualizar(produto);
+//    }
     public void delete(String sku) {
         repository.deleteById(sku);
     }

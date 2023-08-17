@@ -19,15 +19,16 @@ public class ProdutoController {
     private ProdutoService service;
 
     @GetMapping
+    @ResponseStatus
     public ResponseEntity <List<Produto>> listaTodos() {
           List<Produto> produtos = service.listarTodos();
           return ResponseEntity.ok(produtos);
     }
 
     @GetMapping("/{sku}")
+    @ResponseStatus
     public ResponseEntity<Produto> buscarId(@PathVariable String sku) {
         Optional<Produto> optProduto = service.buscarId(sku);
-
         if (optProduto.isEmpty()) {
             return  ResponseEntity.notFound().build();
         }
@@ -35,20 +36,32 @@ public class ProdutoController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Produto> salvarById (@RequestBody Produto produto) {
         Produto novoProduto = service.salvar(produto);
         return  new ResponseEntity<>(novoProduto, HttpStatus.CREATED);
     }
 
+//    @PostMapping
+//    public Produto adcionar (@RequestBody Produto produto) {
+//        return service.adcionar(produto);
+//    }
     @PutMapping
+    @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseEntity<Produto> alterarById (@RequestBody Produto produto) {
         Produto produtoAlterado = service.salvar(produto);
         return ResponseEntity.ok(produtoAlterado);
     }
 
-    @DeleteMapping("{sku}")
-    public ResponseEntity<Produto> deleteById(@PathVariable String sku) {
+//    @PutMapping("/{sku}")
+//    public Produto atualziar (@RequestBody Produto produto, @PathVariable String sku) {
+//        return ProdutoService.atualizar(sku, produto);
+//    }
+
+
+    @DeleteMapping("/{sku}")
+    public String deleteById(@PathVariable String sku) {
         service.delete(sku);
-        return  ResponseEntity.noContent().build();
+        return "Produto com id " + sku + " Foi deletado Com Sucesso!";
     }
 }

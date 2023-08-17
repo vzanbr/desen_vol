@@ -1,16 +1,27 @@
 package vzan.demo.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import vzan.demo.domain.Produto;
-//import vzan.demo.systemdb.SqlQuery;
 
-import java.util.List;
+import java.util.InputMismatchException;
+import java.util.Optional;
+
 
 @Repository
 public interface ProdutoRepository extends CrudRepository<Produto, String> {
-
-//    @SqlQuery
-//    List findByiD(@Param("id") long id);
-}
+//    public Produto adcionar(Produto produto){
+//        ultimoSku++;
+//
+//        produto.setSku(ultimoSku);
+//        produtos.add(produto);
+//            return produto;
+//    }
+//
+//    public  atualizar(Produto produto){
+//        Optional<Produto> produtosEncontrado = obterPorSku(produto.getSku());
+//
+//        if(produtosEncontrado.isEmpty()){
+//            throw new InputMismatchException("Produto não encontrado!");
+//        }
+    }
