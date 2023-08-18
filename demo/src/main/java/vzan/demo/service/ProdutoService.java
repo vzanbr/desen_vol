@@ -17,6 +17,7 @@ public class ProdutoService {
 
     @Autowired
     private ProdutoRepository   repository;
+
     public List<Produto> listarTodos() {
         return (List<Produto>) repository.findAll();
     }
@@ -31,8 +32,8 @@ public class ProdutoService {
     public Optional<Produto> buscarId(String sku) {
         return repository.findById(sku);
     }
-//    public Produto atualizar (Produto produto) {
-//        return repository.atualizar(produto);
+//    public Produto update (Produto produto) {
+//        return repository.update(produto);
 //    }
     public void delete(String sku) {
         repository.deleteById(sku);

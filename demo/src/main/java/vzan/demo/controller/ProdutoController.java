@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/produto")
+@RequestMapping("/produtos")
 public class ProdutoController {
 
     @Autowired
@@ -52,10 +52,10 @@ public class ProdutoController {
         Produto produtoAlterado = service.salvar(produto);
         return ResponseEntity.ok(produtoAlterado);
     }
-
-//    @PutMapping("/{sku}")
-//    public Produto atualziar (@RequestBody Produto produto, @PathVariable String sku) {
-//        return ProdutoService.atualizar(sku, produto);
+//
+//    @PutMapping("/{id}")
+//    public Produto update (@RequestBody Produto produto, @PathVariable Integer id) {
+//        return ProdutoService.update(id, produto);
 //    }
 
 

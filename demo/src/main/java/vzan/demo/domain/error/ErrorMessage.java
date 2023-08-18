@@ -13,6 +13,9 @@ public class ErrorMessage {
         this.status = status;
     }
 
+    public ErrorMessage(String notFound, int val4ue, String message) {
+    }
+
     public String getTitulo() {
         return titulo;
     }

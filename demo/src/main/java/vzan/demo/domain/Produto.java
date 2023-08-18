@@ -1,17 +1,17 @@
 package vzan.demo.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "produtos")
 public class Produto {
 
-    @Id
+    @Id // vai transformar essa coluna em first key
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String sku;
     private String nome;
     private String descricao;
+    private Integer id;
     private Double valor;
     private Integer quantidade;
 
@@ -21,6 +21,14 @@ public class Produto {
 
     public void setSku(String sku) {
         this.sku = sku;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
