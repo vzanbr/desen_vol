@@ -1,26 +1,11 @@
-package vzan.demo.domain;
+package vzan.demo.view.controller.model;
 
-import jakarta.persistence.*;
+public class ProdutoRequest {
 
-@Entity
-@Table(name = "produtos")
-public class Produto {
-
-    @Id // vai transformar essa coluna em first key
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String sku;
     private String nome;
     private String descricao;
     private Double valor;
     private Integer quantidade;
-
-    public String getSku() {
-        return sku;
-    }
-
-    public void setSku(String sku) {
-        this.sku = sku;
-    }
 
     public String getNome() {
         return nome;
@@ -53,7 +38,4 @@ public class Produto {
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
-
 }
-
-

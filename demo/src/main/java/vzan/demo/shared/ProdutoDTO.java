@@ -1,13 +1,11 @@
-package vzan.demo.domain;
+package vzan.demo.shared;
 
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-@Entity
-@Table(name = "produtos")
-public class Produto {
+public class ProdutoDTO {
 
-    @Id // vai transformar essa coluna em first key
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String sku;
     private String nome;
     private String descricao;
@@ -55,5 +53,3 @@ public class Produto {
     }
 
 }
-
-
